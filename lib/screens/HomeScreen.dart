@@ -10,13 +10,6 @@ class WelcomePage extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  double _sigmaX = 5; // from 0-10
-  double _sigmaY = 5; // from 0-10
-  double _opacity = 0.2;
-  double _width = 350;
-  double _height = 300;
-  final _formKey = GlobalKey<FormState>();
-
   // sign user in method
   void signUserIn() {}
 
@@ -40,24 +33,146 @@ class WelcomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.165),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.154),
                   Center(
-                    child: Text(
-                      'LIVFLUENCE',
-                      style: GoogleFonts.bungee(
-                        color: '#D41717'.toColor(),
-                        fontSize: 38,
-                        fontWeight: FontWeight.bold,
-                        shadows: [Shadow(
-                          offset: Offset(0.0, 4.0),
-                          blurRadius: 15.0,
-                          color: '#000000'.toColor(),
-                        )],
-                      ),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/images/logo1.png'),
+                            SizedBox(
+                              width: 6,
+                            ),
+                            Text(
+                              'LIVFLUENCE',
+                              style: GoogleFonts.bungee(
+                                color: '#D41717'.toColor(),
+                                fontSize: 38,
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  Shadow(
+                                    offset: Offset(0.0, 4.0),
+                                    blurRadius: 15.0,
+                                    color: '#000000'.toColor(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 370,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Divider(
+                                thickness: 0.5,
+                                color: Colors.grey[400],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 10.0),
+                              child: Text(
+                                'Log In',
+                                style: GoogleFonts.poppins(
+                                  color: '#E1E1E1'.toColor(),
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Divider(
+                                thickness: 0.5,
+                                color: Colors.grey[400],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 17,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            /* SizedBox(
+                              width: 62,
+                            ), */
+                            IconButton(
+                              icon: Image.asset('assets/images/google.png'),
+                              iconSize: 50,
+                              onPressed: () {},
+                            ),
+                            SizedBox(
+                              width: 37,
+                            ),
+                            IconButton(
+                              icon: Image.asset('assets/images/facebook.png'),
+                              iconSize: 50,
+                              onPressed: () {},
+                            ),
+                            SizedBox(
+                              width: 37,
+                            ),
+                            IconButton(
+                              icon: Image.asset(
+                                  'assets/images/smartphone (1) 1.png'),
+                              iconSize: 50,
+                              onPressed: () {},
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 68,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'By using Livefluence, you agree to the',
+                                  style: GoogleFonts.openSans(
+                                    color: '#FFFFFF'.toColor(),
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Text(
+                                  'Terms of Service',
+                                  style: GoogleFonts.openSans(
+                                    color: '#D41717'.toColor(),
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'and ',
+                                  style: GoogleFonts.openSans(
+                                    color: '#FFFFFF'.toColor(),
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                Text(
+                                  'Privacy Policy',
+                                  style: GoogleFonts.openSans(
+                                    color: '#D41717'.toColor(),
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+                      ],
                     ),
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  
                 ],
               )
             ],
