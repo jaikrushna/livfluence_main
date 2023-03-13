@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:livfluence_main/constants.dart';
 
 class WelcomePage extends StatelessWidget {
   WelcomePage({super.key});
@@ -38,20 +39,21 @@ class WelcomePage extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios),
-                    color: Colors.white,
-                    onPressed: () {},
-                  ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.18),
+                  //SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.165),
                   Center(
                     child: Text(
                       'LIVFLUENCE',
                       style: GoogleFonts.bungee(
-                          color: Colors.white,
-                          fontSize: 38,
-                          fontWeight: FontWeight.bold),
+                        color: '#D41717'.toColor(),
+                        fontSize: 38,
+                        fontWeight: FontWeight.bold,
+                        shadows: [Shadow(
+                          offset: Offset(0.0, 4.0),
+                          blurRadius: 15.0,
+                          color: '#000000'.toColor(),
+                        )],
+                      ),
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
