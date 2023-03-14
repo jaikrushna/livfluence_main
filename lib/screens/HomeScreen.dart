@@ -1,7 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:livfluence_main/constants.dart';
+import 'package:livfluence_main/screens/Login_otp.dart';
 
 class WelcomePage extends StatelessWidget {
   WelcomePage({super.key});
@@ -120,7 +122,9 @@ class WelcomePage extends StatelessWidget {
                               icon: Image.asset(
                                   'assets/images/smartphone (1) 1.png'),
                               iconSize: 50,
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.to(LoginOtp());
+                              },
                             ),
                           ],
                         ),
