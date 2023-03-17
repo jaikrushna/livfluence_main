@@ -5,16 +5,18 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:livfluence_main/constants.dart';
-import 'Otp.dart';
+import 'package:pinput/pinput.dart';
+import 'package:timer_count_down/timer_count_down.dart';
+import 'gender.dart';
 
-class LoginOtp extends StatefulWidget {
-  LoginOtp({super.key});
+class Otp extends StatefulWidget {
+  Otp({super.key});
 
   @override
-  State<LoginOtp> createState() => _LoginOtpState();
+  State<Otp> createState() => _OtpState();
 }
 
-class _LoginOtpState extends State<LoginOtp> {
+class _OtpState extends State<Otp> {
   // text editing controllers
   final usernameController = TextEditingController();
 
@@ -26,6 +28,7 @@ class _LoginOtpState extends State<LoginOtp> {
   @override
   Widget build(BuildContext context) {
     bool _isLoading = false;
+    int press = 0;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -62,10 +65,10 @@ class _LoginOtpState extends State<LoginOtp> {
               Row(
                 children: [
                   SizedBox(
-                    width: 28,
+                    width: 17,
                   ),
                   Text(
-                    'Login with Phone no.',
+                    'OTP Verification',
                     style: GoogleFonts.openSans(
                       color: '#595959'.toColor(),
                       fontSize: 26,
@@ -77,50 +80,82 @@ class _LoginOtpState extends State<LoginOtp> {
               Container(
                 height: size.height * 0.06,
               ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 28,
-                  ),
-                  Text(
-                    'Enter your mobile number',
-                    style: GoogleFonts.openSans(
-                      color: '#7E7E7E'.toColor(),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
+              Pinput(
+                length: 6,
+                onChanged: (value) {
+                  // code = value;
+                },
+                showCursor: true,
+                onCompleted: (pin) => print(pin),
               ),
+
+              // Row(
+              //   children: [
+              //     SizedBox(
+              //       width: 28,
+              //     ),
+              //     Text(
+              //       'Enter your mobile number',
+              //       style: GoogleFonts.openSans(
+              //         color: '#7E7E7E'.toColor(),
+              //         fontSize: 16,
+              //         fontWeight: FontWeight.w400,
+              //       ),
+              //     ),
+              //   ],
+              // ),
               Container(
-                height: size.height * 0,
+                height: size.height * 0.01,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  SizedBox(
-                    height: 6,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 0, horizontal: 15),
-                    child: IntlPhoneField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(),
-                        ),
-                      ),
-                      style: TextStyle(
-                        fontSize: 15.0,
-                      ),
-                      initialValue: '456 789 64',
-                      //focusNode: focusNode1,
-                      invalidNumberMessage: 'Invalid Message',
-                      initialCountryCode: 'IN',
-                      onChanged: (phone) {},
+                  TextButton(
+                    onPressed: () {
+                      if (press == 1) {}
+                    },
+                    child: Countdown(
+                      seconds: 30,
+                      build: (BuildContext context, double time) =>
+                          Text('Resend Code($time)',
+                              style: TextStyle(
+                                color: '#FF2626'.toColor(),
+                              )),
+                      interval: Duration(milliseconds: 100),
+                      onFinished: () {
+                        press = 1;
+                        setState(() {});
+                      },
                     ),
                   ),
                 ],
               ),
+              // Column(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     SizedBox(
+              //       height: 6,
+              //     ),
+              //     Container(
+              //       padding: EdgeInsets.symmetric(vertical: 0, horizontal: 15),
+              //       child: IntlPhoneField(
+              //         decoration: InputDecoration(
+              //           border: OutlineInputBorder(
+              //             borderSide: BorderSide(),
+              //           ),
+              //         ),
+              //         style: TextStyle(
+              //           fontSize: 15.0,
+              //         ),
+              //         initialValue: '456 789 64',
+              //         //focusNode: focusNode1,
+              //         invalidNumberMessage: 'Invalid Message',
+              //         initialCountryCode: 'IN',
+              //         onChanged: (phone) {},
+              //       ),
+              //     ),
+              //   ],
+              // ),
               Container(
                 height: size.height * 0.045,
               ),
@@ -129,9 +164,9 @@ class _LoginOtpState extends State<LoginOtp> {
                 child: MaterialButton(
                   minWidth: 258,
                   onPressed: () {
+                    Get.to(gender());
                     setState(() {
                       _isLoading = true;
-                      Get.to(Otp());
                     });
 
                     Future.delayed(Duration(seconds: 2), () {
@@ -156,7 +191,7 @@ class _LoginOtpState extends State<LoginOtp> {
                           ),
                         )
                       : Text(
-                          "Send",
+                          "Submit",
                           style: TextStyle(color: Colors.white, fontSize: 24),
                         ),
                 ),

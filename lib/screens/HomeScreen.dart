@@ -14,7 +14,7 @@ class WelcomePage extends StatelessWidget {
 
   // sign user in method
   void signUserIn() {}
-
+  //this
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,14 +110,14 @@ class WelcomePage extends StatelessWidget {
                             SizedBox(
                               width: 37,
                             ),
-                            IconButton(
-                              icon: Image.asset('assets/images/facebook.png'),
-                              iconSize: 50,
-                              onPressed: () {},
-                            ),
-                            SizedBox(
-                              width: 37,
-                            ),
+                            // IconButton(
+                            //   icon: Image.asset('assets/images/facebook.png'),
+                            //   iconSize: 50,
+                            //   onPressed: () {},
+                            // ),
+                            // SizedBox(
+                            //   width: 37,
+                            // ),
                             IconButton(
                               icon: Image.asset(
                                   'assets/images/smartphone (1) 1.png'),
