@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:livfluence_main/constants.dart';
 // import 'package:intl/intl.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
@@ -182,14 +183,21 @@ class _WelcomeViewState extends State<WelcomeView> {
                         SizedBox(
                           width: 28,
                         ),
-                        Text(
-                          'Nickname',
-                          textAlign: TextAlign.left,
-                          style: GoogleFonts.openSans(
-                            color: '#7E7E7E'.toColor(),
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Center(
+                              child: Text(
+                                'Nickname',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.openSans(
+                                  color: '#7E7E7E'.toColor(),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -214,10 +222,27 @@ class _WelcomeViewState extends State<WelcomeView> {
                             onChanged: (value) {
                               firstname = value;
                             },
-                            decoration: const InputDecoration(
-                              border: UnderlineInputBorder(),
-                              fillColor: Colors.black,
-                              labelText: 'Enter your Nickname',
+                            decoration: InputDecoration(
+                              labelText: 'Enter Your Name',
+                              hintStyle: TextStyle(color: Colors.black38),
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 10.0, horizontal: 20.0),
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(32.0)),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.blueAccent, width: 1.0),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(32.0)),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.blueAccent, width: 2.0),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(32.0)),
+                              ),
                             ),
                           ),
                         ),
@@ -266,10 +291,32 @@ class _WelcomeViewState extends State<WelcomeView> {
                       child: SizedBox(
                           height: 100,
                           child: TextFormField(
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
                             readOnly: true,
                             controller: _dateController,
                             decoration: InputDecoration(
                               labelText: 'Date',
+                              hintStyle: TextStyle(color: Colors.black38),
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 10.0, horizontal: 20.0),
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(32.0)),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.blueAccent, width: 1.0),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(32.0)),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.blueAccent, width: 2.0),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(32.0)),
+                              ),
                             ),
                             onTap: () async {
                               await showDatePicker(
