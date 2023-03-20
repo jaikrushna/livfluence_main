@@ -44,6 +44,7 @@ dependencies:
   animate_do: ^3.0.2
   pinput: ^2.2.21
   timer_count_down: ^2.2.0
+  modal_progress_hud_nsn: ^0.3.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
